@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Navigate,
+}from "react-router-dom"
+import NewPaletteView from "./views/NewPaletteView"
+import ColorView from "./views/ColorView"
+import PaletteView from "./views/PaletteView"
+import PaletteListView from "./views/PaletteListView"
+import colors from "./templates/colors"
+
+
+
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(<>
+      <Route path="/palettes/new" element = {<NewPaletteView/>}/>
+      <Route path="/palettes/:id/:color" element={<ColorView colors={colors}/>}/>
+      <Route path="/palettes/:id" element ={<PaletteView colors={colors}/>}/>
+      <Route path="/palettes" element = {<PaletteListView colors={colors}/>}/>
+      <Route path="/" element={<Navigate to="/palettes"/>}/>
+    </>
+  )
+)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 
