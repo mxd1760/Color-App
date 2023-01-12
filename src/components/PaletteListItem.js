@@ -2,14 +2,13 @@ import React from "react";
 import styled from "styled-components"
 import {Card, CardContent} from "@mui/material"
 import { useNavigate } from "react-router-dom";
+import { ItemTitle } from "../styles/shared"; 
 
 const PaletteCard = styled(Card)`
   width:20%;
   margin:10px;
 `
-const ItemTitle = styled.h3`
-  margin:0;
-`
+
 const PaletteIcon = styled.span`
 `
 const PaletteCardTitle = styled.div`
