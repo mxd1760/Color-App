@@ -18,6 +18,8 @@ import colors from "./templates/colors"
 const router = createBrowserRouter(
   createRoutesFromElements(<>
       <Route path="/palettes/new" element = {<NewPaletteView/>}/>
+      <Route path="/palettes/edit/:id" element = {<NewPaletteView/>}/>
+      <Route path="/palettes/edit" element = {<Navigate to="/palettes"/>}/>
       <Route path="/palettes/:id/:color" element={<ColorView colors={colors}/>}/>
       <Route path="/palettes/:id" element ={<PaletteView colors={colors}/>}/>
       <Route path="/palettes" element = {<PaletteListView colors={colors}/>}/>

@@ -1,4 +1,6 @@
+import { Button } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
 import PaletteListItem from "../components/PaletteListItem";
 import {PageView,Title} from "../styles/shared"
@@ -8,9 +10,17 @@ const PaletteList = styled.main`
   flex-wrap:wrap;
   justify-content:center;
 `
-
+const Header = styled.header`
+  display:flexbox;
+  justify-content:space-between;
+  flex-direction:row;
+  align-items:center;
+`
+const NewPaletteButton = styled(Button)`
+`
 
 export default function PaletteListView({colors}){
+  let navigate = useNavigate();
 
   let palettes = []
   for(let palette of colors){
@@ -19,7 +29,10 @@ export default function PaletteListView({colors}){
 
   return(
     <PageView>
-      <Title>PaletteListView</Title>
+      <Header>
+        <Title>PaletteListView</Title>
+        <NewPaletteButton onClick={()=>navigate("/palettes/new")}>Add A New Palette</NewPaletteButton>
+      </Header>
       <PaletteList>
         {palettes}
       </PaletteList>
