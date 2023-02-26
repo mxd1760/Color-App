@@ -20,6 +20,7 @@ const ColorIconContainer = styled.div`
   height:15vh;
   display:flexbox;
   flex-wrap:wrap;
+  align-content:flex-start;
 `
 const ColorIcon = styled.div`
   width:20%;

@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
+import { ColorContext } from "../App";
 import PaletteListItem from "../components/PaletteListItem";
 import {PageView,Title} from "../styles/shared"
 
@@ -19,7 +20,8 @@ const Header = styled.header`
 const NewPaletteButton = styled(Button)`
 `
 
-export default function PaletteListView({colors}){
+export default function PaletteListView(){
+  const colors = useContext(ColorContext).rawColors;
   let navigate = useNavigate();
 
   let palettes = []

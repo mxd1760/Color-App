@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ColorContext } from "../App";
 import ColorBox from "../components/ColorBox";
 import { PaletteViewHeader,BackButton,Title,ColorBoxContainer, PageView } from "../styles/shared";
 import { generateColorRange } from "../util/colorCalc";
 
 
-export default function ColorView({colors}){
+export default function ColorView(){
+  
+  const colors = useContext(ColorContext).rawColors;
   const navigate = useNavigate();
   let params = useParams();
   // console.log(`id: ${params.id}`)

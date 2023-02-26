@@ -1,6 +1,7 @@
 import { Slider } from "@mui/material";
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ColorContext } from "../App";
 import ColorBox from "../components/ColorBox";
 import {PageView, Title,BackButton,PaletteViewHeader,SpaceFiller,ColorBoxContainer} from "../styles/shared"
 import { generatePalette } from "../util/colorCalc";
@@ -8,7 +9,8 @@ import { generatePalette } from "../util/colorCalc";
 
 
 
-export default function PaletteView({colors}){
+export default function PaletteView(){
+  const colors = useContext(ColorContext).rawColors;
   const navigate = useNavigate();
   const params = useParams()
   const colorBoxes = []
